@@ -1,0 +1,33 @@
+
+# Streamlit secrets (contains your Zenodo token!)
+.streamlit/secrets.toml
+ 
+# Local data (downloaded from Zenodo at runtime)
+data/
+fsepi_data/
+Data_explorer_app/
+ 
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+ 
+# Virtual environment
+venv/
+env/
+.venv/
+ 
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+ 
+# OS files
+.DS_Store
+Thumbs.db
