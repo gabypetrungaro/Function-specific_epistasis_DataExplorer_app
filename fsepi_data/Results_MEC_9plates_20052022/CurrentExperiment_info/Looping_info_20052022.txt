@@ -1,0 +1,10 @@
+Plate ini_reads reads_bef_dil dils_bef_freezing ini_reads_counter reads_counter dils_counter TOTAL_dils_counter ON_OFF_var
+17221 100 100 6 0 0 1 97 ON
+17222 101 100 6 0 0 1 97 ON
+17223 102 100 6 0 0 1 97 ON
+17224 103 100 6 0 0 1 97 ON
+17225 104 100 6 0 0 1 97 ON
+17226 100 100 6 0 0 1 97 ON
+17227 101 100 6 0 0 1 97 ON
+17228 102 100 6 0 0 1 97 ON
+17229 103 100 6 0 0 1 97 ON

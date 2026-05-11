@@ -1,0 +1,4 @@
+antibiotic TMP
+units ug/ml
+CM1 1.3
+CM2 40

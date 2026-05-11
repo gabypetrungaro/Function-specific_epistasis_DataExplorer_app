@@ -1,0 +1,10 @@
+num_of_plates 9
+date 12082021
+antibiotic TMP
+steepness 1.3
+c0 1.5
+num_of_LB_reservoirs 5
+OD_max 0.15
+bkg 0.044
+
+OUTPUT

@@ -1,0 +1,10 @@
+Plate ini_reads reads_bef_dil dils_bef_freezing ini_reads_counter reads_counter dils_counter TOTAL_dils_counter ON_OFF_var
+8961 100 100 6 0 0 4 82 ON
+8962 101 100 6 0 0 4 82 ON
+8963 102 100 6 0 0 3 81 ON
+8964 103 100 6 0 0 3 81 ON
+8965 104 100 6 0 0 3 81 ON
+8966 100 100 6 0 0 3 81 ON
+8967 101 100 6 0 0 3 81 ON
+8968 102 100 6 0 0 3 81 ON
+8969 103 100 6 0 0 3 81 ON

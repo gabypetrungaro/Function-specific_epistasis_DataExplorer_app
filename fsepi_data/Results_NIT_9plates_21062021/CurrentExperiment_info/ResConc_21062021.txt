@@ -1,0 +1,4 @@
+antibiotic NIT
+units ug/ml
+CM1 6
+CM2 30

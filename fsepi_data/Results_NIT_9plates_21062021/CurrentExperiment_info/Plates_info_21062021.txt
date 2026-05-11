@@ -1,0 +1,10 @@
+Plate TipBox Media_TipBox LB_reservoir CM1_reservoir CM2_reservoir StartOrder Protocol PlateLocation PlateLayoutFile datetime
+8961 CultureBoxSmall_01 MediaBoxSmall_01 LB_1 CM1_1_Lid CM2_1 8961 GP_STARTprotocol_1of3_schedule Liconic.01_1_17 plate1_layout_21062021.csv "21-06-2021 13-02-32"
+8962 CultureBoxSmall_02 MediaBoxSmall_02 LB_2 CM1_1_Lid CM2_1 8962 GP_STARTprotocol_2of3_schedule Liconic.01_2_18 plate2_layout_21062021.csv "21-06-2021 13-03-28"
+8963 CultureBoxSmall_03 MediaBoxSmall_01 LB_3 CM1_1_Lid CM2_1 8963 GP_STARTprotocol_3of3_schedule Liconic.01_1_18 plate3_layout_21062021.csv "21-06-2021 13-05-01"
+8964 CultureBoxSmall_04 MediaBoxSmall_02 LB_4 CM1_2_Lid CM2_2 8964 GP_STARTprotocol_1of3_schedule Liconic.01_2_19 plate4_layout_21062021.csv "21-06-2021 14-36-34"
+8965 CultureBoxSmall_05 MediaBoxSmall_01 LB_1 CM1_2_Lid CM2_2 8965 GP_STARTprotocol_2of3_schedule Liconic.01_1_19 plate5_layout_21062021.csv "21-06-2021 14-37-28"
+8966 CultureBoxSmall_06 MediaBoxSmall_02 LB_2 CM1_2_Lid CM2_2 8966 GP_STARTprotocol_3of3_schedule Liconic.01_2_20 plate6_layout_21062021.csv "21-06-2021 14-39-05"
+8967 CultureBoxSmall_07 MediaBoxSmall_01 LB_3 CM1_3_Lid CM2_3 8967 GP_STARTprotocol_1of3_schedule Liconic.01_1_20 plate7_layout_21062021.csv "21-06-2021 16-19-37"
+8968 CultureBoxSmall_08 MediaBoxSmall_02 LB_4 CM1_3_Lid CM2_3 8968 GP_STARTprotocol_2of3_schedule Liconic.01_2_21 plate8_layout_21062021.csv "21-06-2021 16-21-27"
+8969 CultureBoxSmall_09 MediaBoxSmall_01 LB_5 CM1_3_Lid CM2_3 8969 GP_STARTprotocol_3of3_schedule Liconic.01_1_21 plate9_layout_21062021.csv "21-06-2021 16-22-21"

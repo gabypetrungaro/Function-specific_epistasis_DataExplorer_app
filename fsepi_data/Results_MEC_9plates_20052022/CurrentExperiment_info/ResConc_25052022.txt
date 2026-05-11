@@ -1,0 +1,4 @@
+antibiotic MEC
+units ug/ml
+CM1 0.5
+CM2 6
