@@ -150,7 +150,7 @@ max_OD_exp = 0.15
 # g0 =0.02
 for pl in plates:
     _, ODdata[pl], ABdata[pl], full_gr_dic[pl] = mymf.load_data_one_plate(exp_folder, pl, min_OD_exp, max_OD_exp)
-strainsdf = mymf.import_strain_names_as_dataframe(motherplates_dic.keys())
+strainsdf = mymf.import_strain_names_as_dataframe(DATA_DIR, motherplates_dic.keys())
 #
 # seq_results = pickle.load(open(f'{exp_folder}/mutated_genes_in_evolved_strains_{exp_info["antibiotic"]}.p', 'rb'))
 # =============================================================================

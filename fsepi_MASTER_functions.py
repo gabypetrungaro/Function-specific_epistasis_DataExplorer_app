@@ -320,10 +320,10 @@ def load_data_one_plate(exp_folder, plate, min_OD_exp, max_OD_exp):
 #             gr_rates_dic[f'{well}_gr_area'].append(gc)
 #             gr_rates_dic[f'{well}_Area'].append(Ac)
 #     return gr_rates_dic   
-def import_strain_names_as_dataframe(motherplates):
+def import_strain_names_as_dataframe(data_dir, motherplates):
     df = pd.DataFrame()
     for mother_plate in motherplates:
-        df_toap = pd.read_csv(f'/home/gaby/Manuscripts/Function-specific_epistasis/DATA_manuscript/fsepi_data_explorer_app/fsepi_data/strain_names_plate_{mother_plate}.csv', usecols = [0,1])
+        df_toap = pd.read_csv(f'{data_dir}/fsepi_data/strain_names_plate_{mother_plate}.csv', usecols = [0,1])
         df_toap['mother_plate'] = mother_plate
         df = df._append(df_toap)
     df = df.set_index('gene-deletion')
