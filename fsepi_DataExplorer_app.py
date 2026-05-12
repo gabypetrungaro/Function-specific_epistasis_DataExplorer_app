@@ -5,6 +5,10 @@ Created on Fri Sep 24 12:01:27 2021
 
 @author: gaby
 """
+import zipfile
+import requests
+from pathlib import Path
+from io import BytesIO
 import sys
 import fsepi_MASTER_functions as mymf
 import fsepi_MASTER_plotting_functions as mypf
@@ -12,7 +16,7 @@ import pickle
 from plotly.subplots import make_subplots
 
 import streamlit as st
-# import pandas as pd
+import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 def histogram_for_barplot(xis, nbins):
@@ -20,6 +24,61 @@ def histogram_for_barplot(xis, nbins):
     hist, bins=np.histogram(xis, bins=binss)
     return hist, binss
 
+# ──────────────────────────────────────────────
+# Zenodo-related CONFIGURATION — edit these two values
+# ──────────────────────────────────────────────
+ZENODO_RECORD_ID = "20082951"          # Zenodo record ID
+ZIP_FILENAME      = "fsepi_data.zip"  # your ZIP filename on Zenodo
+
+@st.cache_resource(show_spinner="Downloading data from Zenodo...")
+def load_data_from_zenodo():
+    """
+    Downloads and extracts the ZIP from Zenodo.
+    Cached so it only runs once per app session.
+    Uses an API token if available (for restricted/embargoed data).
+    Returns a Path to the extracted data directory.
+    """
+    url = f"https://zenodo.org/api/records/{ZENODO_RECORD_ID}/files/{ZIP_FILENAME}/content"
+
+    # Use token if available (for restricted data), otherwise download without
+    headers = {}
+    try:
+        token = st.secrets["ZENODO_TOKEN"]
+        headers["Authorization"] = f"Bearer {token}"
+    except (KeyError, FileNotFoundError):
+        pass  # No token — data must be public
+
+    response = requests.get(url, headers=headers, timeout=120)
+    response.raise_for_status()
+
+    extract_dir = Path("data")
+    extract_dir.mkdir(exist_ok=True)
+
+    with zipfile.ZipFile(BytesIO(response.content)) as zf:
+        zf.extractall(extract_dir)
+
+    return extract_dir
+# ──────────────────────────────────────────────
+# Load the data (this line triggers the download)
+# ──────────────────────────────────────────────
+DATA_DIR = load_data_from_zenodo()
+# ──────────────────────────────────────────────
+# YOUR APP CODE BELOW
+# ──────────────────────────────────────────────
+# Use DATA_DIR to reference your files, for example:
+#
+#   import pandas as pd
+#   df = pd.read_csv(DATA_DIR / "subfolder" / "my_file.csv")
+#
+# The directory structure inside the ZIP is preserved,
+# so use the same relative paths as on your local machine.
+# ──────────────────────────────────────────────
+# st.write(f"Data loaded from: {DATA_DIR}")
+# st.write("Files available:")
+# for f in sorted(DATA_DIR.rglob("*")):
+#     if f.is_file():
+#         st.write(f"  📄 {f.relative_to(DATA_DIR)}")
+# =============================================================================
 # -- Set page config
 apptitle = 'Petrungaro_et_al_NatComm_EvoExperiments_explorer'
 st.set_page_config(page_title=apptitle, page_icon=":eyeglasses:")
@@ -77,7 +136,7 @@ else:
     for i in range(7,10):
         platenum_to_motherplate[f'896{i}'] = 'GPm3'
 exp_info = {'exp_ini_date': exp_ini_date, 'antibiotic': antibiotic_label, 'number_of_plates':  9}
-exp_folder = f'./fsepi_data/Results_{exp_info["antibiotic"]}_{exp_info["number_of_plates"]}plates_{exp_info["exp_ini_date"]}'
+exp_folder = f'{DATA_DIR}/fsepi_data/Results_{exp_info["antibiotic"]}_{exp_info["number_of_plates"]}plates_{exp_info["exp_ini_date"]}'
 #-------------------------------------------------------
 plates_info, layouts = mymf.read_plates_layout(exp_folder, exp_info['exp_ini_date'], names='no')
 plates = plates_info.loc[:,'Plate'].values
@@ -258,3 +317,6 @@ else:
     dic = {'normalized growth rate': (full_gr_dic, 'gr_fit'), 'OD data':(ODdata, 'OD')}
     mypf.plate_overwiew_2ys(dic[y2][0], dic[y2][1], ABdata, layouts, plate, platenum_to_motherplate, strainsdf, xmax=tmax, g0 = g0, ABylabel = antibiotic_label)
     st.pyplot(fig)
+    
+    
+
