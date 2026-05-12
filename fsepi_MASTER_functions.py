@@ -325,7 +325,8 @@ def import_strain_names_as_dataframe(data_dir, motherplates):
     for mother_plate in motherplates:
         df_toap = pd.read_csv(f'{data_dir}/fsepi_data/strain_names_plate_{mother_plate}.csv', usecols = [0,1])
         df_toap['mother_plate'] = mother_plate
-        df = df._append(df_toap)
+        # df = df._append(df_toap)
+        df = pd.concat([df, df_toap], ignore_index=True)
     df = df.set_index('gene-deletion')
     return df
 # def strain_num_and_motherplate_to_name(strainsdf, str_num, motherplate):
